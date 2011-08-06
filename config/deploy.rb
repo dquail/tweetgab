@@ -9,9 +9,9 @@ set :deploy_to, '/webapps/tweetgab.com'
 set :deploy_via, :remote_cache
 set :keep_releases, 4 
 
-role :web, "logicaldecay.net"                          # Your HTTP server, Apache/etc
-role :app, "logicaldecay.net"                          # This may be the same as your `Web` server
-role :db,  "logicaldecay.net", :primary => true        # This is where Rails migrations will run
+role :web, "www.tweetgab.com"                          # Your HTTP server, Apache/etc
+role :app, "www.tweetgab.com"                          # This may be the same as your `Web` server
+role :db,  "www.tweetgab.com", :primary => true        # This is where Rails migrations will run
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
