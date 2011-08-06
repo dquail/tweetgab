@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806200510) do
+ActiveRecord::Schema.define(:version => 20110806205435) do
 
   create_table "hash_tags", :force => true do |t|
     t.string   "name"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(:version => 20110806200510) do
   end
 
   create_table "statuses", :force => true do |t|
-    t.integer  "has_tag_id"
+    t.integer  "hash_tag_id"
     t.datetime "created_at"
     t.string   "id_str"
     t.string   "in_reply_to_user_id_str"
-    t.string   "text"
+    t.text     "text",                    :limit => 240
     t.integer  "retweet_count"
     t.string   "profile_image_url"
     t.string   "profile_id_str"

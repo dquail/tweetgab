@@ -1,0 +1,21 @@
+<h1>Listing hash_tags</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hash_tags.each do |hash_tag| %>
+  <tr>
+    <td><%= link_to 'Show', hash_tag %></td>
+    <td><%= link_to 'Edit', edit_hash_tag_path(hash_tag) %></td>
+    <td><%= link_to 'Destroy', hash_tag, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hash tag', new_hash_tag_path %>
