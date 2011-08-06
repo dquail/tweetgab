@@ -1,4 +1,5 @@
 Tweetgab::Application.routes.draw do
+  root :to => "Dashboard#show"
   resources :statuses
 
   resources :hash_tags
