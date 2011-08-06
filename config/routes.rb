@@ -1,5 +1,9 @@
 Tweetgab::Application.routes.draw do
   root :to => "Dashboard#show"
+  resources :statuses
+
+  resources :hash_tags
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
