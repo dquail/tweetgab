@@ -10,6 +10,7 @@ gem 'hoptoad_notifier'
 gem 'compass'
 gem 'haml'
 gem 'jquery-rails'
+gem 'tweetstream'
 
 # Use unicorn as the web server
 # gem 'unicorn'
