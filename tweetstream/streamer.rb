@@ -5,12 +5,24 @@ require '../config/environment.rb'
 require 'rubygems'
 require 'tweetstream'
 
-#TweetStream::Client.new('dquail','helama28').sample do |status|
-#	#the status object is a special hash with 
-#	#method access to its keys
-#	puts "#{status.text}"
-#end
+#to do - take the hash_tag as a parameter
 
-TweetStream::Client.new('dquail','helama28').track('swbay')do |status|
-	puts "#{status.text}"
+hash_tag = 'swbay'
+user = 'tweetgabteam'
+password = 'helama28'
+
+TweetStream::Client.new('dquail','helama28').track(hash_tag)do |status|
+  #print this bad boy out
+	puts "Text - #{status.text}"
+	puts "Created at - #{status.created_at}"
+	puts "Status id_str - #{status.id_str}"
+	puts "in_reply_to_user_id_str - #{status.in_reply_to_user_id_str}"
+	puts "retweet_count - #{status.retweet_count}"	
+	puts "profile_image_url - #{status.user.profile_image_url}"
+	puts "user_id_str - #{status.user.id_str}"
+	puts "followers - #{status.user.followers_count}"
+	puts "screen name: #{status.user.screen_name}"	
+	puts "inreplyto - #{status.in_reply_to_status_id}"
+	
+
 end
