@@ -1,4 +1,3 @@
-
 var Status = Backbone.Model.extend({
 });
 
@@ -21,29 +20,50 @@ var StatusView = Backbone.View.extend({
   },
   render: function() {
     $(this.el).html("This is a status rendered at " + new Date());
-    return this
+    return this;
   }
 });
 
 var StatusController = {
   initialize: function() {
+    var self = this;
     StatusController.statuses.bind("add", this.add, this);
     StatusController.statuses.bind("remove", this.remove, this);
+    StatusController.statuses.bind("reset", this.reset, this);
+    StatusController.statuses.reset([
+      {id: 'foo'},
+      {id: 'bar'},
+      {id: 'baz'},
+      {id: 'qux'},
+      {id: 'quux'},
+      {id: 'quz'}
+    ]);
   },
   MAX_STATUSES: 5,
   statuses: new Statuses(),
-  add: function(status) {
+  add: function(status, options) {
     new StatusView({
       model: status,
-      id: "status-" + status.id
+      id: "status-" + status.get('id')
     });
-    if (this.statuses.length > this.MAX_STATUSES) {
+    if (!options.ignoreMax && this.statuses.length > this.MAX_STATUSES) {
       this.statuses.remove(this.statuses.first());
     }
   },
   remove: function(status) {
-    console.log("Removing ", status)
-    status.get('view').remove();
+    if (status.get('view')) {
+      status.get('view').remove();
+    }
+  },
+  reset: function() {
+    this.statuses.forEach(function(status) {
+      this.add(status, {ignoreMax: true});
+    }, this);
+    while (this.statuses.length > this.MAX_STATUSES) {
+      this.statuses.remove(this.statuses.first());
+    }
   }
 }
-StatusController.initialize();
+$(function() {
+  StatusController.initialize();
+});
