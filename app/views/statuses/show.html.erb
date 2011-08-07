@@ -1,5 +1,60 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Hash tag:</b>
+  <%= @status.hash_tag_id %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @status.created_at %>
+</p>
+
+<p>
+  <b>Id str:</b>
+  <%= @status.id_str %>
+</p>
+
+<p>
+  <b>In reply to user id str:</b>
+  <%= @status.in_reply_to_user_id_str %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @status.text %>
+</p>
+
+<p>
+  <b>Retweet count:</b>
+  <%= @status.retweet_count %>
+</p>
+
+<p>
+  <b>Profile image url:</b>
+  <%= @status.profile_image_url %>
+</p>
+
+<p>
+  <b>Profile id str:</b>
+  <%= @status.profile_id_str %>
+</p>
+
+<p>
+  <b>Profile friends count:</b>
+  <%= @status.profile_friends_count %>
+</p>
+
+<p>
+  <b>Profile screen name:</b>
+  <%= @status.profile_screen_name %>
+</p>
+
+<p>
+  <b>In_reply to status:</b>
+  <%= @status.in_reply_to_status_id %>
+</p>
+
 
 <%= link_to 'Edit', edit_status_path(@status) %> |
 <%= link_to 'Back', statuses_path %>
