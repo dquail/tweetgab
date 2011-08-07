@@ -2,7 +2,14 @@ var Status = Backbone.Model.extend({
 });
 
 var Statuses = Backbone.Collection.extend({
-  model: Status
+  initialize: function(models, options) {
+    this.hashTag = options.hashTag;
+  },
+  model: Status,
+  lastUpdated: 0,
+  url: function() {
+    return '/hash_tags/' + this.hashTag + '/statuses.json?most_recent=' + 100
+  }
 });
 
 var StatusView = Backbone.View.extend({
@@ -49,9 +56,14 @@ var StatusController = {
       makeFakeStatus('qux'),
       makeFakeStatus('quux')
     ]);
+    setInterval(function() {
+      StatusController.statuses.fetch({
+        add: true
+      });
+    }, 1000)
   },
   MAX_STATUSES: 5,
-  statuses: new Statuses(),
+  statuses: new Statuses([], {hashTag:1}),
   add: function(status, options) {
     new StatusView({
       model: status,
