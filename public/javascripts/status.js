@@ -27,8 +27,8 @@ var StatusView = Backbone.View.extend({
   },
   render: function() {
     $(this.el).html(
-      "<img src='" + this.model.get('profile_img_url') + "'/>" +
-      "<div class='status-text'>" + this.model.get('text') + "</div>"
+      "<img height='48' width='48' src='" + this.model.get('profile_img_url') + "'/>" +
+      "<div class='status-text'>" + this.model.get('text') + "</div><br class='clear'/>"
     );
     return this;
   }
@@ -54,6 +54,22 @@ var StatusController = {
       makeFakeStatus('bar'),
       makeFakeStatus('baz'),
       makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
       makeFakeStatus('quux')
     ]);
     setInterval(function() {
@@ -62,7 +78,7 @@ var StatusController = {
       });
     }, 1000)
   },
-  MAX_STATUSES: 5,
+  MAX_STATUSES: 20,
   statuses: new Statuses([], {hashTag:1}),
   add: function(status, options) {
     new StatusView({
