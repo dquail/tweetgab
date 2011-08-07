@@ -59,7 +59,7 @@ var StatusController = {
     }, 1000)
   },
   MAX_STATUSES: 20,
-  statuses: new Statuses([], {hashTag:2}),
+  statuses: new Statuses([], {hashTag:1}),
   add: function(status, options) {
     new StatusView({
       model: status,
