@@ -19,10 +19,21 @@ var StatusView = Backbone.View.extend({
     
   },
   render: function() {
-    $(this.el).html("This is a status rendered at " + new Date());
+    $(this.el).html(
+      "<img src='" + this.model.get('profile_img_url') + "'/>" +
+      "<div class='status-text'>" + this.model.get('text') + "</div>"
+    );
     return this;
   }
 });
+
+function makeFakeStatus(str) {
+  return {
+    id: parseInt((Math.random()*1000)),
+    text: "This is a tweet. String provided was " + str,
+    profile_img_url: "https://si0.twimg.com/profile_images/912184731/IMG_4626b_normal.jpg"
+  }
+}
 
 var StatusController = {
   initialize: function() {
@@ -30,13 +41,13 @@ var StatusController = {
     StatusController.statuses.bind("add", this.add, this);
     StatusController.statuses.bind("remove", this.remove, this);
     StatusController.statuses.bind("reset", this.reset, this);
+    
     StatusController.statuses.reset([
-      {id: 'foo'},
-      {id: 'bar'},
-      {id: 'baz'},
-      {id: 'qux'},
-      {id: 'quux'},
-      {id: 'quz'}
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('quux')
     ]);
   },
   MAX_STATUSES: 5,
@@ -64,6 +75,7 @@ var StatusController = {
     }
   }
 }
+
 $(function() {
   StatusController.initialize();
 });

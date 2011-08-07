@@ -9,6 +9,11 @@ $page-width: 950px
 
 @import compass
 
+@-webkit-keyframes spinner
+  from 
+    -webkit-transform: rotateY(0deg)
+  to
+    -webkit-transform: rotateY(-360deg)
 html
   height: 100%
 body
@@ -31,6 +36,7 @@ body
       width: $page-width - 24px
       margin: 18px auto
       #statuses
+        -webkit-perspective: 1200px
         .status
           padding: 24px
           background-color: $page-background-color
@@ -38,6 +44,11 @@ body
           border: 1px solid #333
           +single-box-shadow
           margin-bottom: 12px
+          -webkit-animation-name: spinner
+          -webkit-animation-timing-function: linear
+          -webkit-animation-iteration-count: infinite
+          -webkit-animation-duration: 6s
+          -webkit-transform-style: preserve-3d
     #page-footer
       height: $footer-height
       position: absolute

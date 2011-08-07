@@ -1,14 +1,26 @@
-/* line 12, ../../app/stylesheets/tweetgab.sass */
+@-webkit-keyframes spinner {
+  /* line 13, ../../app/stylesheets/tweetgab.sass */
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+
+  /* line 15, ../../app/stylesheets/tweetgab.sass */
+  to {
+    -webkit-transform: rotateY(-360deg);
+  }
+}
+
+/* line 17, ../../app/stylesheets/tweetgab.sass */
 html {
   height: 100%;
 }
 
-/* line 14, ../../app/stylesheets/tweetgab.sass */
+/* line 19, ../../app/stylesheets/tweetgab.sass */
 body {
   height: 100%;
   background-image: url(/images/dark-tile.gif);
 }
-/* line 17, ../../app/stylesheets/tweetgab.sass */
+/* line 22, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper {
   position: relative;
   height: auto !important;
@@ -16,23 +28,27 @@ body #page-wrapper {
   min-height: 100%;
   padding-bottom: 60px;
 }
-/* line 23, ../../app/stylesheets/tweetgab.sass */
+/* line 28, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-header {
   background-color: #333333;
   color: white;
 }
-/* line 26, ../../app/stylesheets/tweetgab.sass */
+/* line 31, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-header .content {
   width: 950px;
   padding: 18px 0px;
   margin: 0px auto;
 }
-/* line 30, ../../app/stylesheets/tweetgab.sass */
+/* line 35, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-body {
   width: 926px;
   margin: 18px auto;
 }
-/* line 34, ../../app/stylesheets/tweetgab.sass */
+/* line 38, ../../app/stylesheets/tweetgab.sass */
+body #page-wrapper #page-body #statuses {
+  -webkit-perspective: 1200px;
+}
+/* line 40, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-body #statuses .status {
   padding: 24px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -43,8 +59,13 @@ body #page-wrapper #page-body #statuses .status {
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
   margin-bottom: 12px;
+  -webkit-animation-name: spinner;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 6s;
+  -webkit-transform-style: preserve-3d;
 }
-/* line 41, ../../app/stylesheets/tweetgab.sass */
+/* line 52, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-footer {
   height: 60px;
   position: absolute;
@@ -53,14 +74,14 @@ body #page-wrapper #page-footer {
   background-color: #333333;
   color: white;
 }
-/* line 48, ../../app/stylesheets/tweetgab.sass */
+/* line 59, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-footer .content {
   width: 950px;
   padding: 18px 0px;
   margin: 0px auto;
 }
 
-/* line 53, ../../app/stylesheets/tweetgab.sass */
+/* line 64, ../../app/stylesheets/tweetgab.sass */
 a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, h1, h2, h3, h4, h5, h6, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr {
   font-family: Verdana;
   font-size: 14px;
