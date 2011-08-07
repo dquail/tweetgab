@@ -4,12 +4,13 @@ gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+#
 gem 'sqlite3'
 gem 'hoptoad_notifier'
 gem 'compass'
 gem 'haml'
 gem 'jquery-rails'
+gem 'tweetstream'
 
 # Use unicorn as the web server
 # gem 'unicorn'
