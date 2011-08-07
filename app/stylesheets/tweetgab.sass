@@ -1,7 +1,7 @@
 $footer-height: 60px
 $page-color: #333
 $page-background-color: rgba(255,255,255,0.9)
-$header-color: white
+$header-color: rgb(254,201,7)
 $header-background-color: #333
 $footer-color: $header-color
 $footer-background-color: $header-background-color
@@ -11,9 +11,9 @@ $page-width: 950px
 
 @-webkit-keyframes spinner
   from 
-    -webkit-transform: rotateY(0deg)
+    -webkit-transform: rotateY(180deg)
   to
-    -webkit-transform: rotateY(-360deg)
+    -webkit-transform: rotateY(0deg)
 html
   height: 100%
 body
@@ -30,13 +30,17 @@ body
       color: $header-color
       .content
         width: $page-width
-        padding: 18px 0px
         margin: 0px auto
+        h1
+          padding: 12px 0px
+          font-size: 40px
+          line-height: 60px
+          color: $header-color
     #page-body
-      width: $page-width - 24px
+      width: $page-width
       margin: 18px auto
       #statuses
-        -webkit-perspective: 1200px
+        -webkit-perspective: 1000px
         .status
           padding: 24px
           background-color: $page-background-color
@@ -46,9 +50,15 @@ body
           margin-bottom: 12px
           -webkit-animation-name: spinner
           -webkit-animation-timing-function: linear
-          -webkit-animation-iteration-count: infinite
-          -webkit-animation-duration: 6s
+          -webkit-animation-iteration-count: 1
+          -webkit-animation-duration: 1s
           -webkit-transform-style: preserve-3d
+          img
+            display: block
+            float: left
+          .status-text
+            float: left
+            margin-left: 12px
     #page-footer
       height: $footer-height
       position: absolute
@@ -60,8 +70,17 @@ body
         width: $page-width
         padding: 18px 0px
         margin: 0px auto
+        text-align: right
 
 a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, h1, h2, h3, h4, h5, h6, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr
   font-family: Verdana
+
+a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr
   font-size: 14px
   line-height: 21px
+
+.clear
+  clear: both
+
+a
+  color: #fd7607

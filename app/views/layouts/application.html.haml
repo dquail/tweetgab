@@ -16,11 +16,15 @@
     #page-wrapper
       %header#page-header
         .content
-          This is the header
+          %h1
+            tweetgab
       %section#page-body
         =content_for?(:content) ? yield(:content) : yield
         %br.clear
       %footer#page-footer
         .content
-          This is the footer
+          a 
+          %a{:href=>'http://startupweekend.org/'}<
+            startup weekend
+          project
     

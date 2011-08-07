@@ -2,7 +2,14 @@ var Status = Backbone.Model.extend({
 });
 
 var Statuses = Backbone.Collection.extend({
-  model: Status
+  initialize: function(models, options) {
+    this.hashTag = options.hashTag;
+  },
+  model: Status,
+  lastUpdated: 0,
+  url: function() {
+    return '/hash_tags/' + this.hashTag + '/statuses.json?most_recent=' + 100
+  }
 });
 
 var StatusView = Backbone.View.extend({
@@ -20,8 +27,8 @@ var StatusView = Backbone.View.extend({
   },
   render: function() {
     $(this.el).html(
-      "<img src='" + this.model.get('profile_img_url') + "'/>" +
-      "<div class='status-text'>" + this.model.get('text') + "</div>"
+      "<img height='48' width='48' src='" + this.model.get('profile_img_url') + "'/>" +
+      "<div class='status-text'>" + this.model.get('text') + "</div><br class='clear'/>"
     );
     return this;
   }
@@ -47,11 +54,32 @@ var StatusController = {
       makeFakeStatus('bar'),
       makeFakeStatus('baz'),
       makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
       makeFakeStatus('quux')
     ]);
+    setInterval(function() {
+      StatusController.statuses.fetch({
+        add: true
+      });
+    }, 1000)
   },
-  MAX_STATUSES: 5,
-  statuses: new Statuses(),
+  MAX_STATUSES: 20,
+  statuses: new Statuses([], {hashTag:1}),
   add: function(status, options) {
     new StatusView({
       model: status,
