@@ -2,6 +2,17 @@
 
 <table>
   <tr>
+    <th>Hash tag</th>
+    <th>Created at</th>
+    <th>Id str</th>
+    <th>In reply to user id str</th>
+    <th>Text</th>
+    <th>Retweet cont</th>
+    <th>Profile image url</th>
+    <th>Profile id str</th>
+    <th>Profile friends count</th>
+    <th>Profile screen name</th>
+    <th>In reply to status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +20,17 @@
 
 <% @statuses.each do |status| %>
   <tr>
+    <td><%= status.hash_tag_id %></td>
+    <td><%= status.created_at %></td>
+    <td><%= status.id_str %></td>
+    <td><%= status.in_reply_to_user_id_str %></td>
+    <td><%= status.text %></td>
+    <td><%= status.retweet_count %></td>
+    <td><%= status.profile_image_url %></td>
+    <td><%= status.profile_id_str %></td>
+    <td><%= status.profile_friends_count %></td>
+    <td><%= status.profile_screen_name %></td>
+    <td><%= status.in_reply_to_status_id %></td>
     <td><%= link_to 'Show', status %></td>
     <td><%= link_to 'Edit', edit_status_path(status) %></td>
     <td><%= link_to 'Destroy', status, :confirm => 'Are you sure?', :method => :delete %></td>

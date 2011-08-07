@@ -10,10 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806205435) do
+ActiveRecord::Schema.define(:version => 20110807041225) do
+
+  create_table "announcements", :force => true do |t|
+    t.string   "status_id_str"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "answers", :force => true do |t|
+    t.string   "status_id_str"
+    t.string   "question_id_str"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "hash_tags", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "status_id_str"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

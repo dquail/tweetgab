@@ -11,6 +11,50 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :hash_tag_id %><br />
+    <%= f.text_field :hash_tag_id %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :id_str %><br />
+    <%= f.text_field :id_str %>
+  </div>
+  <div class="field">
+    <%= f.label :in_reply_to_user_id_str %><br />
+    <%= f.text_field :in_reply_to_user_id_str %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </div>
+  <div class="field">
+    <%= f.label :retweet_count %><br />
+    <%= f.text_field :retweet_count %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_image_url %><br />
+    <%= f.text_field :profile_image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_id_str %><br />
+    <%= f.text_field :profile_id_str %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_friends_count %><br />
+    <%= f.text_field :profile_friends_count %>
+  </div>
+  <div class="field">
+    <%= f.label :profile_screen_name %><br />
+    <%= f.text_field :profile_screen_name %>
+  </div>
+  <div class="field">
+    <%= f.label :in_reply_to_status_id %><br />
+    <%= f.text_field :in_reply_to_status_id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
