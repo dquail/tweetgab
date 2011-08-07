@@ -19,10 +19,16 @@ role :db,  "www.tweetgab.com", :primary => true        # This is where Rails mig
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
+after "deploy:update", "deploy:symlink_db"
+
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do ; end
   task :stop do ; end
+  task :symlink_db do
+    run "rm -rf #{release_path}/db"
+    run "ln -nfs #{shared_path}/db #{release_path}/db"
+  end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end

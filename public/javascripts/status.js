@@ -1,4 +1,3 @@
-
 var Status = Backbone.Model.extend({
 });
 
@@ -20,30 +19,63 @@ var StatusView = Backbone.View.extend({
     
   },
   render: function() {
-    $(this.el).html("This is a status rendered at " + new Date());
-    return this
+    $(this.el).html(
+      "<img src='" + this.model.get('profile_img_url') + "'/>" +
+      "<div class='status-text'>" + this.model.get('text') + "</div>"
+    );
+    return this;
   }
 });
 
+function makeFakeStatus(str) {
+  return {
+    id: parseInt((Math.random()*1000)),
+    text: "This is a tweet. String provided was " + str,
+    profile_img_url: "https://si0.twimg.com/profile_images/912184731/IMG_4626b_normal.jpg"
+  }
+}
+
 var StatusController = {
   initialize: function() {
+    var self = this;
     StatusController.statuses.bind("add", this.add, this);
     StatusController.statuses.bind("remove", this.remove, this);
+    StatusController.statuses.bind("reset", this.reset, this);
+    
+    StatusController.statuses.reset([
+      makeFakeStatus('foo'),
+      makeFakeStatus('bar'),
+      makeFakeStatus('baz'),
+      makeFakeStatus('qux'),
+      makeFakeStatus('quux')
+    ]);
   },
   MAX_STATUSES: 5,
   statuses: new Statuses(),
-  add: function(status) {
+  add: function(status, options) {
     new StatusView({
       model: status,
-      id: "status-" + status.id
+      id: "status-" + status.get('id')
     });
-    if (this.statuses.length > this.MAX_STATUSES) {
+    if (!options.ignoreMax && this.statuses.length > this.MAX_STATUSES) {
       this.statuses.remove(this.statuses.first());
     }
   },
   remove: function(status) {
-    console.log("Removing ", status)
-    status.get('view').remove();
+    if (status.get('view')) {
+      status.get('view').remove();
+    }
+  },
+  reset: function() {
+    this.statuses.forEach(function(status) {
+      this.add(status, {ignoreMax: true});
+    }, this);
+    while (this.statuses.length > this.MAX_STATUSES) {
+      this.statuses.remove(this.statuses.first());
+    }
   }
 }
-StatusController.initialize();
+
+$(function() {
+  StatusController.initialize();
+});
