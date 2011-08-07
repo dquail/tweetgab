@@ -17,7 +17,9 @@ module Tweetgab
 
     config.action_view.javascript_expansions[:tweetgab] = [
       'application',
-      'jquery_ujs.js'
+      'jquery_ujs',
+      'underscore',
+      'backbone'
     ]
 
     # Only load the plugins named here, in the order given (default is alphabetical).

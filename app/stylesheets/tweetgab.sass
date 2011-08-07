@@ -1,0 +1,54 @@
+$footer-height: 60px
+$page-color: #333
+$page-background-color: rgba(255,255,255,0.9)
+$header-color: white
+$header-background-color: #333
+$footer-color: $header-color
+$footer-background-color: $header-background-color
+$page-width: 950px
+
+@import compass
+
+html
+  height: 100%
+body
+  height: 100%
+  background-image: url(/images/dark-tile.gif)
+  #page-wrapper
+    position: relative
+    height: auto !important
+    height: 100%
+    min-height: 100%
+    padding-bottom: $footer-height
+    #page-header
+      background-color: $header-background-color
+      color: $header-color
+      .content
+        width: $page-width
+        padding: 18px 0px
+        margin: 0px auto
+    #page-body
+      width: $page-width - 24px
+      margin: 18px auto
+      padding: 24px
+      background-color: $page-background-color
+      color: $page-color
+      border: 1px solid #333
+      +single-box-shadow
+      
+    #page-footer
+      height: $footer-height
+      position: absolute
+      width: 100%
+      bottom: 0
+      background-color: $footer-background-color
+      color: $footer-color
+      .content
+        width: $page-width
+        padding: 18px 0px
+        margin: 0px auto
+
+a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, h1, h2, h3, h4, h5, h6, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr
+  font-family: Verdana
+  font-size: 14px
+  line-height: 21px
