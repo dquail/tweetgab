@@ -11,9 +11,9 @@ $page-width: 950px
 
 @-webkit-keyframes spinner
   from 
-    -webkit-transform: rotateY(0deg)
+    -webkit-transform: rotateY(180deg)
   to
-    -webkit-transform: rotateY(-360deg)
+    -webkit-transform: rotateY(0deg)
 html
   height: 100%
 body
@@ -36,7 +36,7 @@ body
       width: $page-width - 24px
       margin: 18px auto
       #statuses
-        -webkit-perspective: 1200px
+        -webkit-perspective: 1000px
         .status
           padding: 24px
           background-color: $page-background-color
@@ -46,8 +46,8 @@ body
           margin-bottom: 12px
           -webkit-animation-name: spinner
           -webkit-animation-timing-function: linear
-          -webkit-animation-iteration-count: infinite
-          -webkit-animation-duration: 6s
+          -webkit-animation-iteration-count: 1
+          -webkit-animation-duration: 1s
           -webkit-transform-style: preserve-3d
     #page-footer
       height: $footer-height

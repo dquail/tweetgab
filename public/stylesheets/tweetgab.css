@@ -1,12 +1,12 @@
 @-webkit-keyframes spinner {
   /* line 13, ../../app/stylesheets/tweetgab.sass */
   from {
-    -webkit-transform: rotateY(0deg);
+    -webkit-transform: rotateY(180deg);
   }
 
   /* line 15, ../../app/stylesheets/tweetgab.sass */
   to {
-    -webkit-transform: rotateY(-360deg);
+    -webkit-transform: rotateY(0deg);
   }
 }
 
@@ -46,7 +46,7 @@ body #page-wrapper #page-body {
 }
 /* line 38, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-body #statuses {
-  -webkit-perspective: 1200px;
+  -webkit-perspective: 1000px;
 }
 /* line 40, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-body #statuses .status {
@@ -61,8 +61,8 @@ body #page-wrapper #page-body #statuses .status {
   margin-bottom: 12px;
   -webkit-animation-name: spinner;
   -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
   -webkit-transform-style: preserve-3d;
 }
 /* line 52, ../../app/stylesheets/tweetgab.sass */
