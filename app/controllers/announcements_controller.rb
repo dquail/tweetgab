@@ -2,7 +2,9 @@ class AnnouncementsController < ApplicationController
   # GET /announcements
   # GET /announcements.xml
   def index
-    @announcements = Announcement.all
+    #@announcements = Announcement.all
+    find_hash_tag
+    @announcements = hash_tag.announcements
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +26,8 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/new
   # GET /announcements/new.xml
   def new
-    @announcement = Announcement.new
+    #@announcement = Announcement.new
+    @announcement = @hash_tag.announcements.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +43,8 @@ class AnnouncementsController < ApplicationController
   # POST /announcements
   # POST /announcements.xml
   def create
-    @announcement = Announcement.new(params[:announcement])
+    #@announcement = Announcement.new(params[:announcement])
+    find_hash_tag
 
     respond_to do |format|
       if @announcement.save
@@ -78,6 +82,15 @@ class AnnouncementsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(announcements_url) }
       format.xml  { head :ok }
+    end
+  end
+
+private
+  def find_hash_tag
+    if params[:hash_tag_id]
+      @unit = HashTag.find(params[:hash_tag_id])
+    else
+      @unit = nil
     end
   end
 end
