@@ -9,6 +9,9 @@ var Statuses = Backbone.Collection.extend({
 var StatusView = Backbone.View.extend({
   initialize: function() {
     $('#statuses').prepend(this.el);
+    this.model.set({
+      view: this
+    });
     this.render();
   },
   tagName: 'div',
@@ -25,14 +28,22 @@ var StatusView = Backbone.View.extend({
 var StatusController = {
   initialize: function() {
     StatusController.statuses.bind("add", this.add, this);
+    StatusController.statuses.bind("remove", this.remove, this);
   },
+  MAX_STATUSES: 5,
   statuses: new Statuses(),
-  statusViews: [],
   add: function(status) {
-    this.statusViews.push(new StatusView({
+    new StatusView({
       model: status,
       id: "status-" + status.id
-    }));
+    });
+    if (this.statuses.length > this.MAX_STATUSES) {
+      this.statuses.remove(this.statuses.first());
+    }
+  },
+  remove: function(status) {
+    console.log("Removing ", status)
+    status.get('view').remove();
   }
 }
 StatusController.initialize();

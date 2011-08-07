@@ -31,6 +31,9 @@ body #page-wrapper #page-header .content {
 body #page-wrapper #page-body {
   width: 926px;
   margin: 18px auto;
+}
+/* line 34, ../../app/stylesheets/tweetgab.sass */
+body #page-wrapper #page-body #statuses .status {
   padding: 24px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #333333;
@@ -39,8 +42,9 @@ body #page-wrapper #page-body {
   -webkit-box-shadow: 0px 0px 5px #333333;
   -o-box-shadow: 0px 0px 5px #333333;
   box-shadow: 0px 0px 5px #333333;
+  margin-bottom: 12px;
 }
-/* line 39, ../../app/stylesheets/tweetgab.sass */
+/* line 41, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-footer {
   height: 60px;
   position: absolute;
@@ -49,14 +53,14 @@ body #page-wrapper #page-footer {
   background-color: #333333;
   color: white;
 }
-/* line 46, ../../app/stylesheets/tweetgab.sass */
+/* line 48, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-footer .content {
   width: 950px;
   padding: 18px 0px;
   margin: 0px auto;
 }
 
-/* line 51, ../../app/stylesheets/tweetgab.sass */
+/* line 53, ../../app/stylesheets/tweetgab.sass */
 a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, h1, h2, h3, h4, h5, h6, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr {
   font-family: Verdana;
   font-size: 14px;
