@@ -2,8 +2,7 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.xml
   def index
-    @statuses = Status.all
-
+    @statuses = Status.limit(20).order("created_at DESC").where("created_at > ?", Time.at(params[:most_recent].to_i/1000))
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @statuses }

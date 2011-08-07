@@ -6,9 +6,9 @@ var Statuses = Backbone.Collection.extend({
     this.hashTag = options.hashTag;
   },
   model: Status,
-  lastUpdated: 0,
+  lastUpdated: new Date("2011-08-07T00:00:00Z"),
   url: function() {
-    return '/hash_tags/' + this.hashTag + '/statuses.json?most_recent=' + 100
+    return '/hash_tags/' + this.hashTag + '/statuses.json?most_recent=' + this.lastUpdated.getTime();
   }
 });
 
@@ -27,7 +27,7 @@ var StatusView = Backbone.View.extend({
   },
   render: function() {
     $(this.el).html(
-      "<img height='48' width='48' src='" + this.model.get('profile_img_url') + "'/>" +
+      "<img height='48' width='48' src='" + this.model.get('profile_image_url') + "'/>" +
       "<div class='status-text'>" + this.model.get('text') + "</div><br class='clear'/>"
     );
     return this;
@@ -38,7 +38,7 @@ function makeFakeStatus(str) {
   return {
     id: parseInt((Math.random()*1000)),
     text: "This is a tweet. String provided was " + str,
-    profile_img_url: "https://si0.twimg.com/profile_images/912184731/IMG_4626b_normal.jpg"
+    profile_image_url: "https://si0.twimg.com/profile_images/912184731/IMG_4626b_normal.jpg"
   }
 }
 
@@ -49,29 +49,9 @@ var StatusController = {
     StatusController.statuses.bind("remove", this.remove, this);
     StatusController.statuses.bind("reset", this.reset, this);
     
-    StatusController.statuses.reset([
-      makeFakeStatus('foo'),
-      makeFakeStatus('bar'),
-      makeFakeStatus('baz'),
-      makeFakeStatus('qux'),
-      makeFakeStatus('foo'),
-      makeFakeStatus('bar'),
-      makeFakeStatus('baz'),
-      makeFakeStatus('qux'),
-      makeFakeStatus('foo'),
-      makeFakeStatus('bar'),
-      makeFakeStatus('baz'),
-      makeFakeStatus('qux'),
-      makeFakeStatus('foo'),
-      makeFakeStatus('bar'),
-      makeFakeStatus('baz'),
-      makeFakeStatus('qux'),
-      makeFakeStatus('foo'),
-      makeFakeStatus('bar'),
-      makeFakeStatus('baz'),
-      makeFakeStatus('qux'),
-      makeFakeStatus('quux')
-    ]);
+    StatusController.statuses.fetch({
+      add: true
+    });
     setInterval(function() {
       StatusController.statuses.fetch({
         add: true
@@ -85,6 +65,13 @@ var StatusController = {
       model: status,
       id: "status-" + status.get('id')
     });
+    console.log("last updated", this.statuses.lastUpdated);
+    console.log(status.get('created_at'))
+    console.log("new status", new Date(status.get('created_at')))
+    if (this.statuses.lastUpdated < new Date(status.get('created_at'))) {
+      console.log("updated last status")
+      this.statuses.lastUpdated = new Date(status.get('created_at'));
+    }
     if (!options.ignoreMax && this.statuses.length > this.MAX_STATUSES) {
       this.statuses.remove(this.statuses.first());
     }

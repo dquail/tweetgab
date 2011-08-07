@@ -80,8 +80,9 @@ body #page-wrapper #page-body #statuses .status img {
 body #page-wrapper #page-body #statuses .status .status-text {
   float: left;
   margin-left: 12px;
+  width: 840px;
 }
-/* line 62, ../../app/stylesheets/tweetgab.sass */
+/* line 63, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-footer {
   height: 60px;
   position: absolute;
@@ -90,7 +91,7 @@ body #page-wrapper #page-footer {
   background-color: #333333;
   color: #fec907;
 }
-/* line 69, ../../app/stylesheets/tweetgab.sass */
+/* line 70, ../../app/stylesheets/tweetgab.sass */
 body #page-wrapper #page-footer .content {
   width: 950px;
   padding: 18px 0px;
@@ -98,23 +99,23 @@ body #page-wrapper #page-footer .content {
   text-align: right;
 }
 
-/* line 75, ../../app/stylesheets/tweetgab.sass */
+/* line 76, ../../app/stylesheets/tweetgab.sass */
 a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, h1, h2, h3, h4, h5, h6, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr {
   font-family: Verdana;
 }
 
-/* line 78, ../../app/stylesheets/tweetgab.sass */
+/* line 79, ../../app/stylesheets/tweetgab.sass */
 a, abbr, acronym, address, applet, area, article, aside, audio, b, base, basefont, bdo, big, blockquote, body, br, button, canvas, caption, center, cite, code, col, colgroup, command, datalist, dd, del, details, dfn, dir, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, frame, frameset, header, hgroup, i, input, ins, keygen, kbd, label, legend, li, mark, menu, meter, nav, noscript, object, ol, optgroup, option, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, title, tr, tt, u, ul, var, wbr {
   font-size: 14px;
   line-height: 21px;
 }
 
-/* line 82, ../../app/stylesheets/tweetgab.sass */
+/* line 83, ../../app/stylesheets/tweetgab.sass */
 .clear {
   clear: both;
 }
 
-/* line 85, ../../app/stylesheets/tweetgab.sass */
+/* line 86, ../../app/stylesheets/tweetgab.sass */
 a {
   color: #fd7607;
 }

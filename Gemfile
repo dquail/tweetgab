@@ -11,6 +11,7 @@ gem 'compass'
 gem 'haml'
 gem 'jquery-rails'
 gem 'tweetstream'
+gem 'pry'
 
 # Use unicorn as the web server
 # gem 'unicorn'
