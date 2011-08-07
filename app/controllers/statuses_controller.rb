@@ -7,6 +7,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @statuses }
+      format.json {render :json => @statuses }
     end
   end
 
@@ -18,6 +19,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @status }
+      format.json {render :json => @statuse }
     end
   end
 
@@ -29,6 +31,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @status }
+      format.json { render :json => @status }
     end
   end
 
@@ -46,9 +49,11 @@ class StatusesController < ApplicationController
       if @status.save
         format.html { redirect_to(@status, :notice => 'Status was successfully created.') }
         format.xml  { render :xml => @status, :status => :created, :location => @status }
+        format.json  { render :json => @status, :status => :created, :location => @status }        
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @status.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @status.errors, :status => :unprocessable_entity }        
       end
     end
   end
@@ -62,9 +67,11 @@ class StatusesController < ApplicationController
       if @status.update_attributes(params[:status])
         format.html { redirect_to(@status, :notice => 'Status was successfully updated.') }
         format.xml  { head :ok }
+        format.json  { head :ok }        
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @status.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @status.errors, :status => :unprocessable_entity }        
       end
     end
   end
@@ -78,6 +85,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(statuses_url) }
       format.xml  { head :ok }
+      format.json  { head :ok }      
     end
   end
 end
