@@ -19,7 +19,8 @@ module Tweetgab
       'application',
       'jquery_ujs',
       'underscore',
-      'backbone'
+      'backbone',
+      'status'
     ]
 
     # Only load the plugins named here, in the order given (default is alphabetical).
