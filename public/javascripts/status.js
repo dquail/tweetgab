@@ -59,17 +59,13 @@ var StatusController = {
     }, 1000)
   },
   MAX_STATUSES: 20,
-  statuses: new Statuses([], {hashTag:1}),
+  statuses: new Statuses([], {hashTag:2}),
   add: function(status, options) {
     new StatusView({
       model: status,
       id: "status-" + status.get('id')
     });
-    console.log("last updated", this.statuses.lastUpdated);
-    console.log(status.get('created_at'))
-    console.log("new status", new Date(status.get('created_at')))
     if (this.statuses.lastUpdated < new Date(status.get('created_at'))) {
-      console.log("updated last status")
       this.statuses.lastUpdated = new Date(status.get('created_at'));
     }
     if (!options.ignoreMax && this.statuses.length > this.MAX_STATUSES) {

@@ -1,6 +1,6 @@
 require 'tweetstream'
 #to do - take the hash_tag as a parameter
-hash_tag_name = 'GodUniverse'
+hash_tag_name = 'swbay'
 user = 'tweetgabteam'
 password = 'helama28'
 
